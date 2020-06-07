@@ -11,6 +11,7 @@ defmodule BdoAppWeb.Router do
 
   pipeline :api do
     plug :accepts, ["json"]
+    plug BdoAppWeb.Plugs.SnakeCaseParams
   end
 
   scope "/", BdoAppWeb do
@@ -19,10 +20,11 @@ defmodule BdoAppWeb.Router do
     get "/", PageController, :index
   end
 
-  # Other scopes may use custom stacks.
-  # scope "/api", BdoAppWeb do
-  #   pipe_through :api
-  # end
+  scope "/api", BdoAppWeb do
+    pipe_through :api
+
+    resources "/recipes", RecipeController, except: [:new, :edit]
+  end
 
   # Enables LiveDashboard only for development
   #

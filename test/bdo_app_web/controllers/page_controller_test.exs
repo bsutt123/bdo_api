@@ -1,4 +1,4 @@
-defmodule BdoAppWeb.PageControllerTest do
+defmodule BdoAppWeb.Plugs.PageControllerTest do
   use BdoAppWeb.ConnCase
 
   test "GET /", %{conn: conn} do
