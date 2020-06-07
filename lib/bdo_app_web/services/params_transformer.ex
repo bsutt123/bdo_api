@@ -25,7 +25,7 @@ defmodule BdoAppWeb.Services.ParamsTransformer do
       end
 
       def transform_key(key) when is_binary(key) do
-        key |> unquote(options[:transformer].())
+        key |> unquote(options[:transformer]).()
       end
 
       def transform_key(key) when is_atom(key) do
