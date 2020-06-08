@@ -52,8 +52,6 @@ defmodule BdoAppWeb.Plugs.SnakeCaseParamsTest do
   end
 
   def assert_params(conn, params) do
-    IO.inspect(conn.params)
-    IO.inspect(params)
     conn.params == params
   end
 end
